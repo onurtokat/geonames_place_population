@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Search Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Searching with Place Name and Radius</h1>
+<form action="#" th:action="@{/search}" th:object="${searchModel}" method="post">
+    <table>
+        <tr>
+            <td>Place Name:</td>
+            <td><input type="text" th:field="*{name}" /></td>
+            <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
+        </tr>
+        <tr>
+            <td>Radius(km):</td>
+            <td><input type="text" th:field="*{radius}" /></td>
+        </tr>
+        <tr>
+            <td><button type="submit">Submit</button></td>
+            <td><button type="reset">Reset</button></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
