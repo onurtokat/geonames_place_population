@@ -19,22 +19,51 @@ public class MainPlaceInfo {
 	private int subPlaceCount;
 	private List<Place> listOfPlaceInfo;
 
-	/**
-	 * @param name
-	 * @param latitude
-	 * @param longitude
-	 * @param population
-	 * @param subPlaceCount
-	 * @param listOfPlaceInfo
-	 */
-	public MainPlaceInfo(String name, double latitude, double longitude, BigInteger population, int subPlaceCount,
-			List<Place> listOfPlaceInfo) {
-		super();
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
 		this.name = name;
+	}
+
+	public double getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(double latitude) {
 		this.latitude = latitude;
+	}
+
+	public double getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(double longitude) {
 		this.longitude = longitude;
+	}
+
+	public BigInteger getPopulation() {
+		return population;
+	}
+
+	public void setPopulation(BigInteger population) {
 		this.population = population;
+	}
+
+	public int getSubPlaceCount() {
+		return subPlaceCount;
+	}
+
+	public void setSubPlaceCount(int subPlaceCount) {
 		this.subPlaceCount = subPlaceCount;
+	}
+
+	public List<Place> getListOfPlaceInfo() {
+		return listOfPlaceInfo;
+	}
+
+	public void setListOfPlaceInfo(List<Place> listOfPlaceInfo) {
 		this.listOfPlaceInfo = listOfPlaceInfo;
 	}
 

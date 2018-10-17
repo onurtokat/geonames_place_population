@@ -233,7 +233,7 @@ public class MainController {
         List<Place> filteredPlaceInfo = new ArrayList<Place>();
 
         JSONObject jsonObj = new JSONObject();
-        JSONArray jsonList = new JSONArray();
+        MainPlaceInfo mainPlaceInfo = new MainPlaceInfo();
 
         for (int i = 0; i < selectedPlaceInfos.size(); i++) {
 
@@ -249,13 +249,15 @@ public class MainController {
             for (Place p1 : filteredPlaceInfo) {
                 if (p1.getGeonameid() != geonameid) {
                     tmp = tmp.add(p1.getPopulation());
-                    jsonList.add(p1);
                 }
             }
-            jsonObj.put(1,
-                    new MainPlaceInfo(selectedPlaceInfos.get(i).getName(), selectedPlaceInfos.get(i).getLatitude(),
-                            selectedPlaceInfos.get(i).getLongitude(), tmp, filteredPlaceInfo.size(),
-                            filteredPlaceInfo));
+            mainPlaceInfo.setName(selectedPlaceInfos.get(i).getName());
+            mainPlaceInfo.setLatitude(selectedPlaceInfos.get(i).getLatitude());
+            mainPlaceInfo.setLongitude(selectedPlaceInfos.get(i).getLongitude());
+            mainPlaceInfo.setPopulation(tmp);
+            mainPlaceInfo.setSubPlaceCount(filteredPlaceInfo.size());
+            mainPlaceInfo.setListOfPlaceInfo(filteredPlaceInfo);
+            jsonObj.put(1, mainPlaceInfo);
         }
 
         return jsonObj.toJSONString();
